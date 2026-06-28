@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Web - Inicio</title>
+    <meta name="author" content="Academia Web">
+    <meta name="description" content="Aprende programacion web con HTML, CSS desde cero en Academia Web Huancayo.">
+    <meta name="keywords" content="cursos programacion web, html, css, academia web, huancayo">
+    <link rel="icon" href="img/logotipo.png" type="image/png" />
+
+    <!-- PASO 1: Google Fonts (Poppins + Lato) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- PASO 1: Font Awesome (iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="img/logotipo.png" alt="logotipo" width="100" height="100">
+        <audio src="sound/fondo.mp3" preload="auto" loop controls></audio>
+        <strong>Academia Web, aprende a programar desde cero.</strong>
+
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-tiktok"></i> TikTok
+        </a>
+    </header>
+
+    <!-- CLASE 14: Boton hamburguesa para menu responsivo -->
+    <button id="btnMenu">&#9776; Menu</button>
+
+    <!-- CLASE 14: id="menuNav" para que JS pueda mostrar/ocultar -->
+    <ul id="menuNav">
+        <li><a href="index.html"><i class="fas fa-house"></i> Inicio</a></li>
+        <li><a href="cursos.html"><i class="fas fa-book"></i> Cursos</a></li>
+        <li><a href="actividades.html"><i class="fas fa-calendar-days"></i> Actividades</a></li>
+        <li><a href="ubicacion.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> Ubicacion</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registro</a></li>
+    </ul>
+
+    <main>
+        <!-- CLASE 12 + 13: Boton que llama a prompt() y modifica el DOM -->
+        <article>
+            <h1>Bienvenido a Academia Web Huancayo</h1>
+
+            <!-- CLASE 12: onclick llama a la funcion saludarVisitante() -->
+            <button id="btnSaludo">
+                <i class="fas fa-hand-wave"></i> Como te llamas?
+            </button>
+
+            <div class="hero-flex">
+                <div class="hero-texto">
+                    <p>Somos una institucion dedicada a la ensenanza de programacion web para jovenes y adultos de la region Junin.
+                        Nuestros cursos estan disenados para que aprendas desde cero, con practica real desde el primer dia.</p>
+                    <p>Aprende <strong>HTML, CSS</strong> y construye tus propias paginas web.
+                        Nuestros docentes tienen experiencia en proyectos reales y te guiaran paso a paso.</p>
+                </div>
+                <div class="hero-imagen">
+                    <img src="img/portada.jpg" alt="Cursos de programacion web" width="400" height="250" title="Academia Web">
+                </div>
+            </div>
+        </article>
+
+        <hr>
+
+        <article>
+            <h1>Por que aprender programacion web?</h1>
+            <p>La programacion web es una de las habilidades mas demandadas en el mercado laboral actual.
+                Saber crear paginas web te abre puertas a trabajos remotos, freelance y proyectos propios.</p>
+            <p><strong>En Academia Web te ofrecemos: <em>clases practicas, certificado al finalizar y proyectos reales.</em></strong>
+                Ademas contamos con una comunidad activa de estudiantes que se apoyan mutuamente.</p>
+            <img src="img/portada2.jpg" alt="Cursos de programacion web" width="400" height="250" title="Academia Web">
+        </article>
+    </main>
+
+    <aside>
+        <strong><u><i class="fas fa-link"></i> Recursos Gratuitos</u></strong>
+        <div class="recursos-lista">
+            <a href="https://www.w3schools.com" target="_blank"><i class="fas fa-globe"></i> W3Schools</a>
+            <a href="https://developer.mozilla.org" target="_blank"><i class="fab fa-firefox-browser"></i> MDN Web Docs</a>
+            <a href="https://www.freecodecamp.org" target="_blank"><i class="fas fa-fire"></i> freeCodeCamp</a>
+            <a href="https://www.theodinproject.com" target="_blank"><i class="fas fa-graduation-cap"></i> The Odin Project</a>
+        </div>
+    </aside>
+
+    <footer>
+        <i class="fas fa-copyright"></i> 2026 - www.academiaweb.com. Todos los derechos reservados.
+        <br><i class="fas fa-building"></i> NUESTRO LOCAL.
+        <br><i class="fas fa-map-pin"></i> Direccion: Jr. Los Angeles 456 Huancayo.
+        <br><i class="fas fa-phone"></i> Telefonos: (064) 111222 - (064) 333444.
+    </footer>
+
+    <!-- CLASE 14: Modal de bienvenida (ventana flotante) -->
+    <div id="modalBienvenida">
+        <div class="modal-caja">
+            <h2>Bienvenido a Academia Web</h2>
+            <p>Somos tu academia de programacion web en Huancayo.<br>
+            Aprende <strong>HTML, CSS y JavaScript</strong> desde cero con docentes expertos.</p>
+            <button id="btnCerrarModal">Empezar ahora</button>
+        </div>
+    </div>
+
+    <!-- CLASE 12, 13, 14: Script JS externo -->
+    <script src="js/scripts.js"></script>
+
+</body>
+</html>

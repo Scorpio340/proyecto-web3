@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Web - Registro</title>
+    <link rel="icon" href="img/logotipo.png" type="image/png" />
+
+    <!-- PASO 1: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- PASO 1: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="img/logotipo.png" alt="logotipo" width="100" height="100">
+        <audio src="sound/fondo.mp3" preload="auto" loop controls></audio>
+        <strong>Academia Web, aprende a programar desde cero.</strong>
+
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i> YouTube
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-tiktok"></i> TikTok
+        </a>
+    </header>
+
+    <!-- CLASE 14: Boton hamburguesa -->
+    <button id="btnMenu">&#9776; Menu</button>
+
+    <!-- CLASE 14: id="menuNav" para control JS -->
+    <ul id="menuNav">
+        <li><a href="index.html"><i class="fas fa-house"></i> Inicio</a></li>
+        <li><a href="cursos.html"><i class="fas fa-book"></i> Cursos</a></li>
+        <li><a href="actividades.html"><i class="fas fa-calendar-days"></i> Actividades</a></li>
+        <li><a href="ubicacion.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> Ubicacion</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registro</a></li>
+    </ul>
+
+    <main>
+        <article>
+            <h1><i class="fas fa-user-plus"></i> Formulario de Registro</h1>
+        </article>
+
+        <!-- CLASE 12 + 13: id="formRegistro" para que JS lo capture con getElementById -->
+        <form action="" id="formRegistro">
+
+            <div>
+                <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
+                <input type="text" name="nombre" id="nombre" required minlength="5" maxlength="50"
+                    autocomplete="off" placeholder="Ingresa tu nombre completo">
+                <!-- CLASE 13: El contador de caracteres lo crea JS dinamicamente aqui -->
+            </div>
+
+            <div>
+                <label for="dni"><i class="fas fa-id-card"></i> DNI:</label>
+                <input type="text" name="dni" id="dni" autocomplete="off"
+                    pattern="[0-9]{8}" title="El DNI debe tener 8 digitos" placeholder="12345678">
+            </div>
+
+            <div>
+                <label for="fechaNacimiento"><i class="fas fa-calendar"></i> Fecha de nacimiento:</label>
+                <input type="date" name="fechaNacimiento" id="fechaNacimiento" autocomplete="off" required>
+            </div>
+
+            <div>
+                <label for="correoElectronico"><i class="fas fa-envelope"></i> Correo Electronico:</label>
+                <input type="email" placeholder="ejemplo@correo.com" name="correoElectronico"
+                    id="correoElectronico" autocomplete="off" maxlength="50">
+            </div>
+
+            <div>
+                <label for="telefono"><i class="fas fa-phone"></i> Telefono:</label>
+                <input type="text" name="telefono" id="telefono" autocomplete="off"
+                    pattern="[0-9]{9}" title="El telefono debe tener 9 digitos" placeholder="Ej: 987654321">
+            </div>
+
+            <div>
+                <label for="curso"><i class="fas fa-book"></i> Curso de interes:</label>
+                <select name="curso" id="curso" required>
+                    <option value="">--Selecciona un curso--</option>
+                    <option value="html">HTML desde cero</option>
+                    <option value="css">Diseno Web con CSS</option>
+                    <option value="js-intro">JavaScript: Introduccion</option>
+                    <option value="js-control">JavaScript: Control y Arreglos</option>
+                    <option value="js-dom">JavaScript: Manipulacion del DOM</option>
+                    <option value="js-menu">JavaScript: Menu y Ventanas</option>
+                    <option value="completo">Proyecto Web Completo</option>
+                </select>
+            </div>
+
+            <div>
+                <label><i class="fas fa-chalkboard"></i> Modalidad:</label>
+                <div class="modalidad-opciones">
+                    <input type="radio" name="modalidad" id="presencial" value="presencial" checked>
+                    <label for="presencial">Presencial</label>
+                    <input type="radio" name="modalidad" id="virtual" value="virtual">
+                    <label for="virtual">Virtual</label>
+                </div>
+            </div>
+
+            <div class="check-linea">
+                <input type="checkbox" name="experiencia" id="experiencia">
+                <label for="experiencia">Tengo experiencia previa en programacion</label>
+            </div>
+
+            <div>
+                <label for="presupuesto"><i class="fas fa-dollar-sign"></i> Presupuesto mensual: S/ <span id="valorPresupuesto">100</span></label><br>
+                <input type="range" name="presupuesto" id="presupuesto" min="50" max="500" step="50" value="100"
+                    oninput="document.getElementById('valorPresupuesto').textContent = this.value">
+            </div>
+
+            <div>
+                <label for="voucher"><i class="fas fa-file-upload"></i> Subir voucher de pago (PDF o imagen):</label>
+                <input type="file" name="voucher" id="voucher" accept=".pdf, .jpg, .png">
+            </div>
+
+            <div>
+                <label for="user"><i class="fas fa-user-circle"></i> Usuario:</label>
+                <input type="text" name="user" id="user" autocomplete="off" placeholder="Ingresa tu usuario">
+            </div>
+
+            <div>
+                <label for="clave"><i class="fas fa-lock"></i> Clave:</label>
+                <input type="password" name="clave" id="clave" autocomplete="off">
+            </div>
+
+            <div>
+                <label for="confirmarclave"><i class="fas fa-lock"></i> Confirmar Clave:</label>
+                <input type="password" name="confirmarclave" id="confirmarclave" autocomplete="off">
+            </div>
+
+            <div>
+                <label for="comentarios"><i class="fas fa-comment"></i> Comentarios:</label>
+                <p><textarea name="comentarios" id="comentarios" rows="10" cols="50"
+                    placeholder="Escribe tu consulta aqui..."></textarea></p>
+            </div>
+
+            <div>
+                <!-- CLASE 12: Al hacer clic en Enviar se ejecuta el JS que valida con if, arreglos, confirm y alert -->
+                <button type="submit"><i class="fas fa-paper-plane"></i> Enviar registro</button>
+            </div>
+
+        </form>
+    </main>
+
+    <aside>
+        <strong><u><i class="fas fa-link"></i> Recursos Gratuitos</u></strong>
+        <div class="recursos-lista">
+            <a href="https://www.w3schools.com" target="_blank"><i class="fas fa-globe"></i> W3Schools</a>
+            <a href="https://developer.mozilla.org" target="_blank"><i class="fab fa-firefox-browser"></i> MDN Web Docs</a>
+            <a href="https://www.freecodecamp.org" target="_blank"><i class="fas fa-fire"></i> freeCodeCamp</a>
+            <a href="https://www.theodinproject.com" target="_blank"><i class="fas fa-graduation-cap"></i> The Odin Project</a>
+        </div>
+    </aside>
+
+    <footer>
+        <i class="fas fa-copyright"></i> 2026 - www.academiaweb.com. Todos los derechos reservados.
+        <br><i class="fas fa-building"></i> NUESTRO LOCAL.
+        <br><i class="fas fa-map-pin"></i> Direccion: Jr. Los Angeles 456 Huancayo.
+        <br><i class="fas fa-phone"></i> Telefonos: (064) 111222 - (064) 333444.
+    </footer>
+
+    <!-- CLASE 14: Modal de bienvenida -->
+    <div id="modalBienvenida">
+        <div class="modal-caja">
+            <h2>Registrate hoy</h2>
+            <p>Completa el formulario para inscribirte en nuestros cursos.<br>
+            Te contactaremos a la brevedad.</p>
+            <button id="btnCerrarModal">Completar registro</button>
+        </div>
+    </div>
+
+    <!-- CLASE 12, 13, 14: Script JS externo -->
+    <script src="js/scripts.js"></script>
+
+</body>
+</html>
