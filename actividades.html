@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academia Web - Actividades</title>
-    <link rel="icon" href="logotipo.png" type="image/png" />
+    <link rel="icon" href="img/logotipo.png" type="image/png" />
 
     <!-- PASO 1: Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,14 +15,14 @@
     <!-- PASO 1: Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
 
     <header>
-        <img src="logotipo.png" alt="logotipo" width="100" height="100">
-        <audio src="fondo.mp3" preload="auto" loop controls></audio>
+        <img src="img/logotipo.png" alt="logotipo" width="100" height="100">
+        <audio src="sound/fondo.mp3" preload="auto" loop controls></audio>
         <strong>Academia Web, aprende a programar desde cero.</strong>
 
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -86,7 +86,7 @@
                         <td>&#9786; Muy Bueno</td>
                     </tr>
                     <tr>
-                        <td colspan="3" rowspan="2">Reconocimiento Institucional</td>
+                        <td colspan="3" rowspan="2"> Reconocimiento Institucional </td>
                         <td>Ciclo: 2026-I</td>
                     </tr>
                     <tr>
@@ -100,32 +100,27 @@
 
         <article>
             <h1><i class="fas fa-calendar-check"></i> Cronograma de actividades 2026</h1>
+            <p><a href="files/cronograma_actividades.pdf" target="_blank" download>
+                <i class="fas fa-file-pdf"></i> Descargar PDF del cronograma
+            </a></p>
 
-            <p>
-                <a href="cronograma_actividades.pdf" target="_blank" download>
-                    <i class="fas fa-file-pdf"></i> Descargar PDF del cronograma
-                </a>
-            </p>
-
+            <!-- PASO 4: GRID LAYOUT - actividades en cuadricula 2 columnas -->
             <div class="grid-actividades">
                 <div class="tarjeta-curso">
                     <i class="fas fa-flag"></i>
                     <h2>Inicio de ciclo</h2>
                     <p>Lunes 3 de marzo de 2026. Presentacion de docentes y syllabus.</p>
                 </div>
-
                 <div class="tarjeta-curso">
                     <i class="fas fa-laptop"></i>
                     <h2>Taller practico HTML</h2>
                     <p>Semanas 1-5: Construccion de tu primera pagina web completa.</p>
                 </div>
-
                 <div class="tarjeta-curso">
                     <i class="fas fa-palette"></i>
                     <h2>Taller practico CSS</h2>
                     <p>Semanas 6-10: Animaciones, Flexbox, Grid y diseno responsivo.</p>
                 </div>
-
                 <div class="tarjeta-curso">
                     <i class="fas fa-medal"></i>
                     <h2>Exposicion final</h2>
@@ -138,16 +133,13 @@
 
         <article>
             <h1><i class="fas fa-users"></i> Nuestros estudiantes en accion</h1>
-
-            <img src="alumnos.jpeg" alt="Alumnos programando" width="300" height="250" title="Estudiantes">
-
-            <img src="proyecto.jpg" alt="Proyecto web" width="300" height="250" title="Proyectos finales">
+            <img src="img/alumnos.jpeg" alt="Alumnos programando" width="300" height="250" title="Estudiantes">
+            <img src="img/proyecto.jpg" alt="Proyecto web" width="300" height="250" title="Proyectos finales">
         </article>
     </main>
 
     <aside>
         <strong><u><i class="fas fa-link"></i> Recursos Gratuitos</u></strong>
-
         <div class="recursos-lista">
             <a href="https://www.w3schools.com" target="_blank"><i class="fas fa-globe"></i> W3Schools</a>
             <a href="https://developer.mozilla.org" target="_blank"><i class="fab fa-firefox-browser"></i> MDN Web Docs</a>
@@ -167,17 +159,14 @@
     <div id="modalBienvenida">
         <div class="modal-caja">
             <h2>Actividades 2026</h2>
-            <p>
-                Conoce el cronograma, los alumnos destacados y las novedades del ciclo.<br>
-                Participa y gana tu certificado.
-            </p>
+            <p>Conoce el cronograma, los alumnos destacados y las novedades del ciclo.<br>
+            Participa y gana tu certificado.</p>
             <button id="btnCerrarModal">Ver actividades</button>
         </div>
     </div>
 
     <!-- CLASE 12, 13, 14: Script JS externo -->
-    <script src="scripts.js"></script>
+    <script src="js/scripts.js"></script>
 
 </body>
-
 </html>
