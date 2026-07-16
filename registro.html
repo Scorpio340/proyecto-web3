@@ -89,18 +89,60 @@
                     pattern="[0-9]{9}" title="El telefono debe tener 9 digitos" placeholder="Ej: 987654321">
             </div>
 
+            <!-- PDF/MULTI-CURSO: Ahora se puede elegir mas de un curso con checkboxes -->
             <div>
-                <label for="curso"><i class="fas fa-book"></i> Curso de interes:</label>
-                <select name="curso" id="curso" required>
-                    <option value="">--Selecciona un curso--</option>
-                    <option value="html">HTML desde cero</option>
-                    <option value="css">Diseno Web con CSS</option>
-                    <option value="js-intro">JavaScript: Introduccion</option>
-                    <option value="js-control">JavaScript: Control y Arreglos</option>
-                    <option value="js-dom">JavaScript: Manipulacion del DOM</option>
-                    <option value="js-menu">JavaScript: Menu y Ventanas</option>
-                    <option value="completo">Curso Web Completo</option>
-                </select>
+                <label><i class="fas fa-book"></i> Cursos de interes (puedes elegir mas de uno):</label>
+                <div class="cursos-check" id="cursosCheck">
+                    <label class="curso-opcion">
+                        <input type="checkbox" name="cursos" id="curso-html" value="html" data-precio="150" data-nombre="HTML desde cero">
+                        HTML desde cero <span class="precio-mini">S/ 150.00</span>
+                    </label>
+                    <label class="curso-opcion">
+                        <input type="checkbox" name="cursos" id="curso-css" value="css" data-precio="200" data-nombre="Diseno Web con CSS">
+                        Diseno Web con CSS <span class="precio-mini">S/ 200.00</span>
+                    </label>
+                    <label class="curso-opcion">
+                        <input type="checkbox" name="cursos" id="curso-js-intro" value="js-intro" data-precio="120" data-nombre="JavaScript: Introduccion">
+                        JavaScript: Introduccion <span class="precio-mini">S/ 120.00</span>
+                    </label>
+                    <label class="curso-opcion">
+                        <input type="checkbox" name="cursos" id="curso-js-control" value="js-control" data-precio="120" data-nombre="JavaScript: Control y Arreglos">
+                        JavaScript: Control y Arreglos <span class="precio-mini">S/ 120.00</span>
+                    </label>
+                    <label class="curso-opcion">
+                        <input type="checkbox" name="cursos" id="curso-js-dom" value="js-dom" data-precio="120" data-nombre="JavaScript: Manipulacion del DOM">
+                        JavaScript: Manipulacion del DOM <span class="precio-mini">S/ 120.00</span>
+                    </label>
+                    <label class="curso-opcion">
+                        <input type="checkbox" name="cursos" id="curso-js-menu" value="js-menu" data-precio="120" data-nombre="JavaScript: Menu y Ventanas">
+                        JavaScript: Menu y Ventanas <span class="precio-mini">S/ 120.00</span>
+                    </label>
+                    <label class="curso-opcion curso-opcion-destacado">
+                        <input type="checkbox" name="cursos" id="curso-completo" value="completo" data-precio="300" data-nombre="Proyecto Web Completo">
+                        Proyecto Web Completo <span class="precio-mini">S/ 300.00</span>
+                    </label>
+                </div>
+                <small id="avisoCompleto" class="aviso-completo"></small>
+            </div>
+
+            <!-- MULTI-CURSO: Resumen en vivo del pedido, con descuento por combo -->
+            <div id="resumenRegistro" class="resumen-registro">
+                <h3><i class="fas fa-receipt"></i> Resumen de tu inscripcion</h3>
+                <ul id="listaResumen" class="lista-resumen">
+                    <li class="resumen-vacio">Aun no has elegido ningun curso.</li>
+                </ul>
+                <div class="resumen-linea">
+                    <span>Subtotal:</span>
+                    <span id="resumenSubtotal">S/ 0.00</span>
+                </div>
+                <div class="resumen-linea" id="filaDescuento" style="display:none;">
+                    <span id="etiquetaDescuento">Descuento por combo:</span>
+                    <span id="resumenDescuento">- S/ 0.00</span>
+                </div>
+                <div class="resumen-linea resumen-total">
+                    <span>Total a pagar:</span>
+                    <span id="resumenTotal">S/ 0.00</span>
+                </div>
             </div>
 
             <div>
@@ -122,6 +164,18 @@
                 <label for="presupuesto"><i class="fas fa-dollar-sign"></i> Presupuesto mensual: S/ <span id="valorPresupuesto">100</span></label><br>
                 <input type="range" name="presupuesto" id="presupuesto" min="50" max="500" step="50" value="100"
                     oninput="document.getElementById('valorPresupuesto').textContent = this.value">
+            </div>
+
+            <div>
+                <label for="referencia"><i class="fas fa-bullhorn"></i> Como te enteraste de Academia Web?</label>
+                <select name="referencia" id="referencia">
+                    <option value="">--Selecciona una opcion--</option>
+                    <option value="redes">Redes sociales</option>
+                    <option value="recomendacion">Recomendacion de un amigo</option>
+                    <option value="google">Busqueda en Google</option>
+                    <option value="publicidad">Publicidad / Volante</option>
+                    <option value="otro">Otro</option>
+                </select>
             </div>
 
             <div>
@@ -150,12 +204,30 @@
                     placeholder="Escribe tu consulta aqui..."></textarea></p>
             </div>
 
+            <div class="check-linea">
+                <input type="checkbox" name="terminos" id="terminos" required>
+                <label for="terminos">Acepto los <a href="#" id="linkTerminos">terminos y condiciones</a> de Academia Web</label>
+            </div>
+
             <div>
                 <!-- CLASE 12: Al hacer clic en Enviar se ejecuta el JS que valida con if, arreglos, confirm y alert -->
                 <button type="submit"><i class="fas fa-paper-plane"></i> Enviar registro</button>
             </div>
 
         </form>
+
+        <!-- HISTORIAL: Registros guardados en este navegador (localStorage), sin base de datos -->
+        <section id="historialSection" class="historial-registros">
+            <h2><i class="fas fa-history"></i> Mis inscripciones en este navegador</h2>
+            <p class="historial-nota">Estos registros se guardan solo en este navegador (localStorage), mientras la
+                academia no cuenta con una base de datos central.</p>
+            <div id="listaHistorial" class="lista-historial">
+                <!-- JS llena esto dinamicamente -->
+            </div>
+            <button type="button" id="btnLimpiarHistorial" class="btn-secundario">
+                <i class="fas fa-trash"></i> Borrar historial de este navegador
+            </button>
+        </section>
     </main>
 
     <aside>
@@ -184,6 +256,9 @@
             <button id="btnCerrarModal">Completar registro</button>
         </div>
     </div>
+
+    <!-- PDF: Libreria jsPDF por CDN, para generar el comprobante de registro sin backend -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <!-- CLASE 12, 13, 14: Script JS externo -->
     <script src="scripts.js"></script>
